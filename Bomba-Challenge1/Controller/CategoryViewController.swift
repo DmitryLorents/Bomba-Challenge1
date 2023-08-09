@@ -11,9 +11,8 @@ import UIKit
 // MARK: - CategoryViewController
 final class CategoryViewController: UIViewController {
   
-  private let categoryImageArray = ["category1", "category2", "category3", "category4", "category5", "category6"]
-  private let nameCategoryArray = ["О Разном", "Спорт и Хобби", "Про Жизнь", "Знаменитости", "Искусство и Кино", "Природа"]
-  
+  private let categoryImageArray = Category.CategoryImage.allCases
+  private let nameCategoryArray = Category.CategoryName.allCases
   // MARK: - Private Property
   private lazy var backgroundView: UIImageView = {
     let backgroundView = UIImageView()
@@ -35,6 +34,12 @@ final class CategoryViewController: UIViewController {
 
   }
   
+  // MARK: - Actions Methods
+  @objc
+  func addTapped() {
+    navigationController?.popViewController(animated: true)
+  }
+  
 }
 
 // MARK: - Setting Views
@@ -44,10 +49,11 @@ private extension CategoryViewController {
     addSubviews()
     setupLayout()
     configureCollectionView()
-//    configureNavController()
+    configureNavController()
   }
   
 }
+
 // MARK: - Setting
 private extension CategoryViewController {
   func addSubviews() {
@@ -63,14 +69,17 @@ private extension CategoryViewController {
   
   func configureNavController() {
     title = "Категории"
-    navigationController?.hidesBarsOnSwipe = true
    
     let appearance = UINavigationBarAppearance()
     appearance.backgroundColor = .purple
     appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold),
                                       NSAttributedString.Key.foregroundColor: UIColor(named: "purpleText") ?? .white]
     navigationController?.navigationBar.standardAppearance = appearance
+    let leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .done, target: self, action: #selector(addTapped))
+    leftBarButtonItem.tintColor = .black
+    navigationItem.leftBarButtonItem = leftBarButtonItem
   }
+  
 }
 
 // MARK: - Layout
@@ -104,11 +113,11 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
   
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseIdentifier, for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
     
-    let nameImage = categoryImageArray[indexPath.row]
+    let nameImage = categoryImageArray[indexPath.row].rawValue
     let image = UIImage(named: nameImage)
     let nameCategory = nameCategoryArray[indexPath.row]
     cell.imageView.image = image
-    cell.nameCategory.text = nameCategory
+    cell.nameCategory.text = nameCategory.rawValue
 
     return cell
   }
