@@ -9,17 +9,14 @@ import Foundation
 
 class GameController {
     
-    var timer: Timer?
-    
+    var gameData = GameData()
+
     func start() -> String {
-        .init()
+        gameData.questionArray.randomElement() ?? "Нет данных"
     }
-    
+
     func end() -> String {
-        .init()
+        gameData.punishments.randomElement() ?? "Нет данных"
     }
-    
-    func pause() {
-        
-    }
+
 }
