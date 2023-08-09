@@ -11,6 +11,16 @@ struct GameData {
     
     let categories: [Category]
     let punishments: [String]
+    lazy var questionArray: [String] = {
+        var array = [String]()
+        self.categories.forEach { category in
+            if category.isSelected {
+                array += category.questions
+            }
+        }
+        return array
+    }()
+    
     init() {
         let generalCategory = Category(name: "О разном",
                                        imageName: "category1",
