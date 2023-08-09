@@ -136,11 +136,11 @@ extension MainViewController {
     }
     //MARK: - Button methods
     @objc private func startGameButtonPressed() {
-        // navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: true)
+         navigationController?.pushViewController(GameViewController(), animated: true)
     }
     
     @objc private func categoryButtonPressed() {
-        // navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: true)
+         navigationController?.pushViewController(CategoryViewController(), animated: true)
     }
     
     @objc private func rulesButtonPressed() {
