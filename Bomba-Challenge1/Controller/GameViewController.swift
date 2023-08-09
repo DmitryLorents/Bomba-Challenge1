@@ -20,6 +20,10 @@ final class GameViewController: UIViewController {
         return gradientLayer
       }()
     
+    
+    
+    
+    
     lazy var backgroundView: UIView = {
         let verticalView = UIView()
         verticalView.layer.cornerRadius = 20
