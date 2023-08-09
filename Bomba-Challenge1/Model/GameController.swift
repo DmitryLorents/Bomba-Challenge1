@@ -9,7 +9,7 @@ import Foundation
 
 class GameController {
     
-    var gameData = GameData()
+    var gameData = GameData.shared
 
     func start() -> String {
         gameData.questionArray.randomElement() ?? "Нет данных"
