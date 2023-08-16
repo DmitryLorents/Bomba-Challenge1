@@ -1,5 +1,5 @@
 #💣 Bomb app
-##Challenge1[(SWIFTMARATHON 8.0)](https://t.me/swiftmarathon) <a href="url"><img src="ReadMeAssets/swift Marathon.jpeg" height="auto" width="50" align="center"></a>
+##Challenge1[(SWIFTMARATHON 8.0)](https://t.me/swiftmarathon) <a href="url"><img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/swiftMarathon.imageset/swift%20Marathon.jpeg" height="auto" width="20" align="center"></a>
 Some gifs will be here
 ---
 
