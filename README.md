@@ -31,6 +31,9 @@
 <center>
 <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/GameAnimation.dataset/GameAnimation.gif" width="140"/>
 </center>
+<p align="center">
+  <img width="460" height="300" src="http://www.fillmurray.com/460/300">
+</p>
 
 
 ---
