@@ -32,13 +32,14 @@
 <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/GameAnimation.dataset/GameAnimation.gif" width="140"/>
 <p class="aligncenter">
     <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/GameAnimation.dataset/GameAnimation.gif" width="140"/>
-</p>
-
-<style>
+    <style>
 .aligncenter {
     text-align: center;
 }
 </style>
+</p>
+
+
 
 ---
 
