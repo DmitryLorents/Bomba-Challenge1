@@ -33,10 +33,14 @@
 ## Video demonstration of the application
 
 <p align="center">
-  <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/GameAnimation.dataset/GameAnimation.gif" width="140"/>
+  <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/GameAnimation.dataset/GameAnimation.gif" width="300"/>
 </p>
 
 
 ---
 
+## Description
 
+Our application is a game for the company. It is possible to select categories of questions on a separate tab "Categories". Participants stand in a circle, the first player starts the game. A random question appears, which must be answered in turn until the time runs out and the bomb explodes at one of the participants. Background music plays during the round, and a characteristic sound will be heard when the bomb explodes. The game can be paused. The loser completes a task, which can be changed by clicking the "Other task" button. There is also a separate screen with the rules of the game.
+
+---
