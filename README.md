@@ -1,4 +1,4 @@
-# 💣 Bomb app ![version](https://img.shields.io/badge/v1.0-release-green?link=release)
+# 💣 Bomb app ![version](https://img.shields.io/badge/v1.1-readme&nbspadded-green?link=release)
 
 ## Challenge1 [(Swift Marathon 8.0)](https://t.me/swiftmarathon) <a href="url"><img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/swiftMarathon.imageset/swift%20Marathon.jpeg" height="auto" width="30" align="center"></a>
 
@@ -43,4 +43,3 @@
 
 Our application is a game for the company. It is possible to select categories of questions on a separate tab "Categories". Participants stand in a circle, the first player starts the game. A random question appears, which must be answered in turn until the time runs out and the bomb explodes at one of the participants. Background music plays during the round, and a characteristic sound will be heard when the bomb explodes. The game can be paused. The loser completes a task, which can be changed by clicking the "Other task" button. There is also a separate screen with the rules of the game.
 
----
