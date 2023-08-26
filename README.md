@@ -23,13 +23,11 @@
 
 ## Screenshots of our Bomb game project
 
-Start screen          Start game screen
+<img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/MainViewController.imageset/MainViewController.png" width="140"/> <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/GameViewController.imageset/GameViewController.png" width="140"/>  <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/AnimationGameViewController.imageset/AnimationGameViewController.png" width="140"/>   <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/GameEndViewController.imageset/GameEndViewController.png" width="140"/>  <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/CategoryViewController.imageset/CategoryViewController.png" width="140"/>  <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/RulesViewController.imageset/RulesViewController.png" width="140"/>
 
-<img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/MainViewController.imageset/MainViewController.png" width="140"/>       <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/GameViewController.imageset/GameViewController.png" width="140"/>
+## Video demonstration of the application
 
-Video demonstration of the application
-
-<img src="https://github.com/pashaGriDev/TeamBoom/assets/104516847/8c842049-bfc4-4fc8-85a7-22dbbcac50d6" width="140"/>
+<img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/GameAnimation.dataset/GameAnimation.gif" width="140"/>
 
 ---
 
