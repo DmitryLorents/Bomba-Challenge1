@@ -238,7 +238,7 @@ extension RulesViewController {
         }
         categoryLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(imageViewSeven.snp.bottom).inset(-40)
+            make.top.equalTo(imageViewSeven.snp.bottom).inset(-20)
         }
         label8.snp.makeConstraints { make in
             make.top.equalTo(categoryLabel.snp.bottom).inset(-40)
