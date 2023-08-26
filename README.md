@@ -25,7 +25,7 @@
 
 Start screen
 
-<img src="https://github.com/DmitryLorents/Bomba-Challenge1/assets/47753945/a55da29c-5a08-48b3-81fb-b9243d814641" width="140"/>
+<img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/MainViewController.imageset/MainViewController.png" width="140"/>
 
 Start game screen
 
