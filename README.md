@@ -28,17 +28,9 @@
   <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/GameEndViewController.imageset/GameEndViewController.png" width="140"/>  <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/CategoryViewController.imageset/CategoryViewController.png" width="140"/>  <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/RulesViewController.imageset/RulesViewController.png" width="140"/>
 
 ## Video demonstration of the application
-
+<center>
 <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/GameAnimation.dataset/GameAnimation.gif" width="140"/>
-<p class="aligncenter">
-    <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/GameAnimation.dataset/GameAnimation.gif" width="140"/>
-    <style>
-.aligncenter {
-    text-align: center;
-}
-</style>
-</p>
-
+</center>
 
 
 ---
