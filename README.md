@@ -23,13 +23,9 @@
 
 ## Screenshots of our Bomb game project
 
-Start screen
+Start screen   Start game screen
 
-<img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/MainViewController.imageset/MainViewController.png" width="140"/>
-
-Start game screen
-
-<img src="https://github.com/DmitryLorents/Bomba-Challenge1/assets/47753945/1b6d9c41-fed7-4135-965b-87c290bd91c1" width="140"/>
+<img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/MainViewController.imageset/MainViewController.png" width="140"/>   <img src="https://github.com/DmitryLorents/Bomba-Challenge1/blob/dmitry/readmeFix/Bomba-Challenge1/SupportingFiles/Assets.xcassets/ReadmeFiles/GameViewController.imageset/GameViewController.png" width="140"/>
 
 Video demonstration of the application
 
