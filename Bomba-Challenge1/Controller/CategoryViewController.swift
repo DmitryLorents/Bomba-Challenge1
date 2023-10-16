@@ -78,7 +78,7 @@ private extension CategoryViewController {
     }
     
     func configureCollectionView() {
-        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.reuseIdentifier)
+        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.reuseId)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -126,7 +126,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseIdentifier, for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseId, for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
       cell.checkmark.image = gameData.categories[indexPath.row].isSelected ? UIImage(named: "checkmarkOn") :  UIImage(named: "checkmarkOff")
         let category = gameData.categories[indexPath.row]
         cell.imageView.image = UIImage(named: category.imageName)

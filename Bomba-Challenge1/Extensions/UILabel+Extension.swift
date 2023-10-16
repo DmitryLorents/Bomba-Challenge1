@@ -8,6 +8,7 @@
 import UIKit
 
 extension UILabel {
+    
     static func label(with name: String) -> UILabel {
         let label = UILabel()
         label.textAlignment = .left

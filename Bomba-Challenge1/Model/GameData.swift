@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GameData {
+final class GameData {
   
   static let shared = GameData()
   
@@ -141,14 +141,19 @@ class GameData {
       "Выдайте себя за победителя.",
       "Купи всем пиццу."
     ]
+      getQuestionArray()
   }
   
   func getQuestionArray() {
     var array = [String]()
-    self.categories.forEach { category1 in
-      if category1.isSelected {
-        array += category1.questions
+    self.categories.forEach { subCategorie in
+      if subCategorie.isSelected {
+        array += subCategorie.questions
       }
+        //case when no category selected
+        if array.isEmpty, let firstCategory = categories.first {
+            array = firstCategory.questions
+        }
     }
     choiceQusetions = array
   }
@@ -160,6 +165,11 @@ class GameData {
        choiceQusetions.remove(at: index)
       }
     }
+      //case when all question were deleted during the game process
+      if choiceQusetions.isEmpty {
+          getQuestionArray()
+      }
+      
     return randomQuestion ?? ""
   }
 }
