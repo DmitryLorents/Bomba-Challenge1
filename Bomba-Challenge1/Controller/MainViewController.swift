@@ -11,54 +11,17 @@ import SnapKit
 final class MainViewController: UIViewController {
     
     //MARK: Propperties
-    private let gradientLayer: CAGradientLayer = {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.yellow.cgColor, UIColor.orange.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        gradientLayer.cornerRadius = 20
-        return gradientLayer
-    }()
-    private lazy var gradientBackgroundView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 20
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowRadius = 10
-        view.layer.shadowOffset = CGSize.zero
-        view.layer.shadowOpacity = 1
-        view.layer.addSublayer(gradientLayer)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+
+    private let gradientBackgroundView = GradientView()
     private var rulesButton: UIButton = {
         let button = UIButton()
         let rulesImage = UIImage(named: "rules")
         button.setImage(rulesImage, for: .normal)
-        
         return button
     }()
     
-    private var startGameButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .purpleButton
-        button.setTitle("Старт игры", for: .normal)
-        button.setTitleColor(.yellowText, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 24)
-        button.layer.borderColor = UIColor.black.cgColor
-        button.layer.borderWidth = 2
-        return button
-    }()
-    
-    private var categoryButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .purpleButton
-        button.setTitle("Категории", for: .normal)
-        button.setTitleColor(.yellowText, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 24)
-        button.layer.borderColor = UIColor.black.cgColor
-        button.layer.borderWidth = 2
-        return button
-    }()
+    private let startGameButton = CustomButton(title: "Старт игры")
+    private let categoryButton = CustomButton(title: "Категории")
     
     private var topLabel: UILabel = {
         let label = UILabel()
@@ -77,25 +40,18 @@ final class MainViewController: UIViewController {
         return label
     }()
     
-    private var bombImageView: UIImageView = {
-        let bombImage = UIImage(named: "bombImage")
-        let imageView = UIImageView(image: bombImage)
-        return imageView
-    }()
+    private let bombImageView = UIImageView(image: UIImage(named: "bombImage"))
+    
+    //Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setOutlets()
+        setViews()
         setConstraints()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        gradientLayer.frame = gradientBackgroundView.bounds
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         roundCornersForButtons()
     }
 }
@@ -103,7 +59,7 @@ final class MainViewController: UIViewController {
 extension MainViewController {
     
     //MARK: Methods
-    private func setOutlets() {
+    private func setViews() {
         view.addSubview(gradientBackgroundView)
         view.addSubview(rulesButton)
         view.addSubview(categoryButton)
@@ -158,6 +114,7 @@ extension MainViewController {
         startGameButton.layer.cornerRadius = startGameButton.bounds.height / 2
         categoryButton.layer.cornerRadius = categoryButton.bounds.height / 2
     }
+    
     //MARK: - Button methods
     
     @objc private func startGameButtonPressed() {

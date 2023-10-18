@@ -10,28 +10,9 @@ import SnapKit
 
 final class RulesViewController: UIViewController {
     
-    //MARK: - UI
+    //MARK: - Constants and variables
     
-    private let gradientLayer: CAGradientLayer = {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.yellow.cgColor, UIColor.orange.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        gradientLayer.cornerRadius = 20
-        return gradientLayer
-    }()
-    
-    private lazy var gradientBackgroundView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 20
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowRadius = 10
-        view.layer.shadowOffset = CGSize.zero
-        view.layer.shadowOpacity = 1
-        view.layer.addSublayer(gradientLayer)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    private lazy var gradientBackgroundView = GradientView()
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -43,32 +24,12 @@ final class RulesViewController: UIViewController {
     private let categoryLabel = UILabel.labelTitle(with: "Категории")
     private let label8 = UILabel.labelSubTitle(with: "В игре доступно 6 категорий и более 90 вопросов.")
     private let label9 = UILabel.labelSubTitle(with: "Можно выбрать сразу несколько категорий для игры.")
-
-    private var playButtonImageView: UIImageView = {
+    private let playButtonImageView: UIImageView = {
         let view = UIImageView(image: UIImage(named: "gameStartButtonImage"))
         view.contentMode = .scaleAspectFill
         view.frame = CGRect(origin: .zero, size: CGSize(width: 112, height: 27))
         return view
     }()
-    
-    //MARK: - Life Cycle
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        gradientLayer.frame = gradientBackgroundView.bounds
-        scrollView.contentSize = CGSize(width: view.bounds.width, height: view.bounds.height + 500)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupViews()
-        //setupColors()
-        configureNavController()
-        setupConstrains()
-    }
-    
-    //MARK: - Private Properties
-    
     private let imageViewOne = UIImageView.view29x29(imageName: "numberOne")
     private let imageViewTwo = UIImageView.view29x29(imageName: "numberTwo")
     private let imageViewThree = UIImageView.view29x29(imageName: "numberThree")
@@ -89,6 +50,25 @@ final class RulesViewController: UIViewController {
     private let labelSix = UILabel.label(with: "Проигравшим считается тот, в чьих руках взорвалась бомба.")
     private let labelSeven = UILabel.label(with: "Если в настройках выбран режим игры “С Заданиями”, то проигравший выполняет  задание.")
     
+    
+    //MARK: - Life Cycle
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrollView.contentSize = CGSize(width: view.bounds.width, height: imageViewCategory4.frame.maxY)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+        //setupColors()
+        configureNavController()
+        setupConstrains()
+    }
+    
+    //MARK: - Private Properties
+    
+   
 }
 
 extension RulesViewController {

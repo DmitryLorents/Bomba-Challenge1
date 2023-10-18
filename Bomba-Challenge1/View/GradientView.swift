@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class GradientView: UIView {
+final class GradientView: UIView {
   
   private lazy var gradientLayer: CAGradientLayer = {
       let gradientLayer = CAGradientLayer()

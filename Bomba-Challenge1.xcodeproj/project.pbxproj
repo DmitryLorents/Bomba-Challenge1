@@ -14,6 +14,7 @@
 		0A8D8BBF2A810B2900C48DAE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0A8D8BBE2A810B2900C48DAE /* README.md */; };
 		0A92D7F92A873CEB00DBCA5C /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92D7F82A873CEB00DBCA5C /* UILabel+Extension.swift */; };
 		0A92D7FB2A87443500DBCA5C /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92D7FA2A87443500DBCA5C /* UIImageView+Extension.swift */; };
+		0AA3CFB92ADDC6A800B74081 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA3CFB82ADDC6A800B74081 /* CustomButton.swift */; };
 		0ABAB77E2A85728700C258BE /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABAB77D2A85728700C258BE /* RulesViewController.swift */; };
 		0ABEAEE42A824EB200E4F1DD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEAEE32A824EB200E4F1DD /* MainViewController.swift */; };
 		0ABEAEE62A824FEA00E4F1DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ABEAEE52A824FEA00E4F1DD /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		0A8D8BBE2A810B2900C48DAE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0A92D7F82A873CEB00DBCA5C /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		0A92D7FA2A87443500DBCA5C /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		0AA3CFB82ADDC6A800B74081 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		0ABAB77D2A85728700C258BE /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		0ABEAEE32A824EB200E4F1DD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0ABEAEE52A824FEA00E4F1DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				5273F5372A82910800A285B5 /* CategoryCell.swift */,
 				52D10F3B2A85604E00FB7D0D /* GradientView.swift */,
+				0AA3CFB82ADDC6A800B74081 /* CustomButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				0A92D7FB2A87443500DBCA5C /* UIImageView+Extension.swift in Sources */,
 				0AF917192A837C96009F958E /* GameViewController.swift in Sources */,
 				0AF917212A83B7D2009F958E /* GameData.swift in Sources */,
+				0AA3CFB92ADDC6A800B74081 /* CustomButton.swift in Sources */,
 				52D10F3C2A85604E00FB7D0D /* GradientView.swift in Sources */,
 				5273F5362A8290EC00A285B5 /* CategoryViewController.swift in Sources */,
 				0A4864B22A80E21A0095B234 /* AppDelegate.swift in Sources */,
