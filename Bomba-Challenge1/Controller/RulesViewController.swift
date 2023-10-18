@@ -61,14 +61,9 @@ final class RulesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        //setupColors()
         configureNavController()
         setupConstrains()
     }
-    
-    //MARK: - Private Properties
-    
-   
 }
 
 extension RulesViewController {
@@ -77,23 +72,15 @@ extension RulesViewController {
     
     private func configureNavController() {
         title = "Помощь"
-        
         let appearance = UINavigationBarAppearance()
         appearance.titleTextAttributes = [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold),
             NSAttributedString.Key.foregroundColor: UIColor.purpleText ?? .white
         ]
         
-        let leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(named: "arrow"),
-            style: .done, target: self,
-            action: #selector(backButtonPressed)
-        )
-        
+        let leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow"),style: .done, target: self, action: #selector(backButtonPressed))
         leftBarButtonItem.tintColor = .black
-        
         navigationItem.leftBarButtonItem = leftBarButtonItem
-        
         navigationController?.navigationBar.standardAppearance = appearance
     }
     
@@ -106,7 +93,6 @@ extension RulesViewController {
     private func setupViews() {
         view.addSubview(gradientBackgroundView)
         gradientBackgroundView.addSubview(scrollView)
-        
         scrollView.addSubview(labelTitle)
         scrollView.addSubview(imageViewOne)
         scrollView.addSubview(labelOne)
@@ -140,17 +126,21 @@ extension RulesViewController {
         gradientBackgroundView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
+        
         labelTitle.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(40)
             make.centerX.equalToSuperview()
         }
+        
         imageViewOne.snp.makeConstraints { make in
             make.top.equalTo(labelTitle.snp.bottom).inset(-26)
             make.leading.equalToSuperview().inset(8)
         }
+        
         labelOne.snp.makeConstraints { make in
             make.leading.equalTo(imageViewOne.snp.trailing).inset(16)
             make.top.equalTo(imageViewOne).inset(29)
@@ -161,89 +151,108 @@ extension RulesViewController {
             //make.leading.equalTo(imageViewOne)
             make.top.equalTo(labelOne.snp.bottom)
         }
+        
         labelTwo.snp.makeConstraints { make in
             //make.leading.equalTo(labelOne)
             make.leading.equalTo(imageViewTwo.snp.trailing).inset(16)
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(16)
             make.top.equalTo(imageViewTwo).inset(29)
         }
+        
         playButtonImageView.snp.makeConstraints { make in
             make.top.equalTo(labelTwo.snp.bottom).inset(8)
             make.centerX.equalToSuperview()
         }
+        
         imageViewThree.snp.makeConstraints { make in
             make.top.equalTo(playButtonImageView.snp.bottom).inset(39)
             make.leading.equalToSuperview().inset(8)
         }
+        
         labelThree.snp.makeConstraints { make in
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(16)
             make.top.equalTo(imageViewThree).inset(29)
             make.leading.equalTo(imageViewOne.snp.trailing).inset(16)
         }
+        
         imageViewFour.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(8)
             make.top.equalTo(labelThree.snp.bottom)
         }
+        
         labelFour.snp.makeConstraints { make in
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(16)
             make.top.equalTo(imageViewFour).inset(29)
             make.leading.equalTo(imageViewFour.snp.trailing).inset(16)
         }
+        
         imageViewFive.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(8)
             make.top.equalTo(labelFour.snp.bottom)
         }
+        
         labelFive.snp.makeConstraints { make in
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(16)
             make.top.equalTo(imageViewFive).inset(29)
             make.leading.equalTo(imageViewFive.snp.trailing).inset(16)
         }
+        
         imageViewSix.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(8)
             make.top.equalTo(labelFive.snp.bottom)
         }
+        
         labelSix.snp.makeConstraints { make in
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(16)
             make.top.equalTo(imageViewSix).inset(29)
             make.leading.equalTo(imageViewSix.snp.trailing).inset(16)
         }
+        
         imageViewSeven.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(8)
             make.top.equalTo(labelSix.snp.bottom)
         }
+        
         labelSeven.snp.makeConstraints { make in
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(16)
             make.top.equalTo(imageViewSeven).inset(29)
             make.leading.equalTo(imageViewSeven.snp.trailing).inset(16)
         }
+        
         categoryLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(imageViewSeven.snp.bottom).inset(-20)
         }
+        
         label8.snp.makeConstraints { make in
             make.top.equalTo(categoryLabel.snp.bottom).inset(-40)
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(16)
         }
+        
         label9.snp.makeConstraints { make in
             make.top.equalTo(label8.snp.bottom).inset(-40)
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(16)
         }
+        
         imageViewCategory1.snp.makeConstraints { make in
             make.top.equalTo(label9.snp.bottom).inset(-40)
             make.leading.equalToSuperview().inset(8)
             make.height.width.equalTo(imageViewCategory1.snp.width)
         }
+        
         imageViewCategory2.snp.makeConstraints { make in
             make.top.equalTo(imageViewCategory1)
             make.leading.equalTo(imageViewCategory1.snp.trailing).inset(16)
             make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(imageViewCategory2.snp.width)
         }
+        
         imageViewCategory3.snp.makeConstraints { make in
             make.top.equalTo(imageViewCategory1.snp.bottom).inset(16)
             make.leading.equalToSuperview().inset(8)
             make.height.equalTo(imageViewCategory3.snp.width)
         }
+        
         imageViewCategory4.snp.makeConstraints { make in
             make.top.equalTo(imageViewCategory3)
             make.leading.equalTo(imageViewCategory3.snp.trailing).inset(16)
