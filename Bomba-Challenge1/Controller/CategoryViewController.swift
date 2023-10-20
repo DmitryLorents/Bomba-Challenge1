@@ -14,29 +14,15 @@ final class CategoryViewController: UIViewController {
     let gameData = GameData.shared
     
     // MARK: - Private Property
-    private let gradientLayer: CAGradientLayer = {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.yellow.cgColor, UIColor.orange.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        gradientLayer.cornerRadius = 20
-        return gradientLayer
-    }()
-    private lazy var gradientBackgroundView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 20
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowRadius = 10
-        view.layer.shadowOffset = CGSize.zero
-        view.layer.shadowOpacity = 1
-        view.layer.addSublayer(gradientLayer)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    
+    private let gradientBackgroundView = GradientView()
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
+        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.reuseId)
+        collectionView.delegate = self
+        collectionView.dataSource = self
         return collectionView
     }()
     
@@ -48,12 +34,10 @@ final class CategoryViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        gradientLayer.frame = gradientBackgroundView.bounds
     }
     
     // MARK: - Actions Methods
-    @objc
-    func backButtonTapped() {
+    @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
     
@@ -64,7 +48,6 @@ private extension CategoryViewController {
     func setupView() {
         addSubviews()
         setupLayout()
-        configureCollectionView()
         configureNavController()
     }
     
@@ -77,15 +60,9 @@ private extension CategoryViewController {
         view.addSubview(collectionView)
     }
     
-    func configureCollectionView() {
-        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.reuseId)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-    }
-    
     func configureNavController() {
         title = "Категории"
-        
+        //set navigation bar
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .purple
         appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold),
@@ -98,22 +75,16 @@ private extension CategoryViewController {
 }
 
 // MARK: - Layout
-private extension CategoryViewController {
-    func setupLayout() {
-        gradientBackgroundView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+extension CategoryViewController {
+    private func setupLayout() {
         
-        NSLayoutConstraint.activate([
-            gradientBackgroundView.topAnchor.constraint(equalTo: view.topAnchor),
-            gradientBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            gradientBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            gradientBackgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
+        gradientBackgroundView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }
 
@@ -126,12 +97,8 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseId, for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
-      cell.checkmark.image = gameData.categories[indexPath.row].isSelected ? UIImage(named: "checkmarkOn") :  UIImage(named: "checkmarkOff")
-        let category = gameData.categories[indexPath.row]
-        cell.imageView.image = UIImage(named: category.imageName)
-        cell.nameCategory.text = category.name
-        cell.selectCell = category.isSelected
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseId, for: indexPath) as? CategoryCell else { return .init()}
+        cell.setCell(with: gameData, indexPath: indexPath)
         
         return cell
     }
@@ -141,9 +108,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
         
         gameData.categories[indexPath.row].isSelected = !gameData.categories[indexPath.row].isSelected
         gameData.getQuestionArray()
-        
         cell.selectCell = !cell.selectCell
-      cell.checkmark.image = gameData.categories[indexPath.row].isSelected ? UIImage(named: "checkmarkOn") :  UIImage(named: "checkmarkOff")
         print(gameData.choiceQusetions)
     }
 }
@@ -160,14 +125,14 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        20
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        20
     }
 }

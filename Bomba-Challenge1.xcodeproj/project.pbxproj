@@ -124,8 +124,8 @@
 				0ABEAEE32A824EB200E4F1DD /* MainViewController.swift */,
 				0ABAB77D2A85728700C258BE /* RulesViewController.swift */,
 				0AF917182A837C96009F958E /* GameViewController.swift */,
-				44DF34582A850AB200CF1733 /* AnimationGameViewController.swift */,
 				5273F5352A8290EC00A285B5 /* CategoryViewController.swift */,
+				44DF34582A850AB200CF1733 /* AnimationGameViewController.swift */,
 				52D10F332A83D36E00FB7D0D /* GameEndViewController.swift */,
 			);
 			path = Controller;

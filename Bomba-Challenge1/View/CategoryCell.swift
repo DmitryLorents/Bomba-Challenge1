@@ -15,13 +15,13 @@ final class CategoryCell: UICollectionViewCell {
     static let reuseId = String(describing: CategoryCell.self)
     
     // MARK: - Properties
-    lazy var imageView: UIImageView = {
+    private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
-    lazy var nameCategory: UILabel = {
+    private let nameCategory: UILabel = {
         let nameCategory = UILabel()
         nameCategory.textAlignment = .center
         nameCategory.textColor = .yellowText
@@ -30,15 +30,29 @@ final class CategoryCell: UICollectionViewCell {
         return nameCategory
     }()
     
-    lazy var checkmark: UIImageView = {
+    private lazy var checkmark: UIImageView = {
         let checkmark = UIImageView()
         checkmark.image = (self.selectCell) ? UIImage(named: "checkmarkOn") : UIImage(named: "checkmarkOff")
         return checkmark
     }()
     
-    var selectCell = false
+    var selectCell = false {
+        didSet {
+            checkmark.image = (self.selectCell) ? UIImage(named: "checkmarkOn") : UIImage(named: "checkmarkOff")
+        }
+    }
     
     // MARK: - Initializers
+    
+    func setCell(with gameData: GameData, indexPath: IndexPath) {
+        //checkmark.image = gameData.categories[indexPath.row].isSelected ? UIImage(named: "checkmarkOn") :  UIImage(named: "checkmarkOff")
+        
+        let category = gameData.categories[indexPath.row]
+        imageView.image = UIImage(named: category.imageName)
+        nameCategory.text = category.name
+        selectCell = category.isSelected
+        
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCell()
@@ -67,7 +81,7 @@ final class CategoryCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
-       
+        
         imageView.snp.makeConstraints { make in
             make.width.height.lessThanOrEqualTo(90)
             make.center.equalToSuperview()
