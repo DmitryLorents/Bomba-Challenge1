@@ -10,17 +10,14 @@ import AVFoundation
 
 final class AnimationGameViewController: UIViewController {
   
-  let gameData = GameData.shared
+  private let gameData = GameData.shared
   
   // MARK: - Private Property
-  private lazy var backgroundView: GradientView = {
-    let gradientView = GradientView(frame: .zero)
-    return gradientView
-  }()
+  private let backgroundView = GradientView()
+   
   
-  private lazy var questionLabel: UILabel = {
+  private let questionLabel: UILabel = {
     let questionLabel = UILabel()
-    questionLabel.text = ""
     questionLabel.numberOfLines = 0
     questionLabel.textColor = UIColor.purpleText
     questionLabel.textAlignment = .center
@@ -51,8 +48,7 @@ final class AnimationGameViewController: UIViewController {
   }
   
   // Action Methods
-  @objc
-  private func backButtonPressed() {
+  @objc private func backButtonPressed() {
     if timer?.isValid ?? false {
       
     } else {
@@ -60,8 +56,7 @@ final class AnimationGameViewController: UIViewController {
     }
   }
   
-  @objc
-  private func pauseButtonPressed() {
+  @objc private func pauseButtonPressed() {
     if (timer?.isValid ?? false) {
       timer?.invalidate()
       player?.stop()
@@ -75,17 +70,16 @@ final class AnimationGameViewController: UIViewController {
     }
   }
   
-  @objc
-  private func onTimerFires() {
+  @objc private func onTimerFires() {
     timeLeft -= 1
     print(timeLeft)
-    
+    //start final animation
     if timeLeft == 1 {
       animationImageView.animationImages = animatedImages(for: "Unknown-4-")
       animationImageView.startAnimating()
       configurePlayer(urlName: "BOOM")
     }
-    
+    //finish game and go to next screen
     if timeLeft <= 0 {
       timer?.invalidate()
      
@@ -100,7 +94,6 @@ final class AnimationGameViewController: UIViewController {
 // MARK: - Setting Views
 private extension AnimationGameViewController {
   func setupView() {
-    //view.backgroundColor = .white
     addSubviews()
     setupLayout()
     configureNavController()
@@ -183,7 +176,7 @@ private extension AnimationGameViewController {
       try AVAudioSession.sharedInstance().setActive(true)
       
       player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-      guard let player = player else { return }
+      guard let player else { return }
       player.play()
       
     } catch let error {
@@ -194,30 +187,28 @@ private extension AnimationGameViewController {
   func getRandomQuestion() {
     randomQuestion = gameData.getRandomQuestion()
     questionLabel.text = randomQuestion
-    print(gameData.choiceQusetions)
   }
 }
 
 private extension AnimationGameViewController {
   func setupLayout() {
-    backgroundView.translatesAutoresizingMaskIntoConstraints = false
+   
     questionLabel.translatesAutoresizingMaskIntoConstraints = false
     animationImageView.translatesAutoresizingMaskIntoConstraints = false
+      
+      backgroundView.snp.makeConstraints {make in
+          make.edges.equalToSuperview()
+      }
+      
+      questionLabel.snp.makeConstraints { make in
+          make.top.equalTo(view.safeAreaLayoutGuide).inset(20)
+          make.leading.trailing.equalToSuperview().inset(20)
+      }
     
-    NSLayoutConstraint.activate([
-      backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-      backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
-      
-      questionLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-      questionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      questionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-      
-      animationImageView.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 150),
-      animationImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      animationImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-    ])
+      animationImageView.snp.makeConstraints { make in
+          make.top.equalTo(questionLabel.snp.bottom).inset(-150)
+          make.leading.trailing.equalTo(questionLabel)
+      }
   }
 }
 
