@@ -192,9 +192,6 @@ private extension AnimationGameViewController {
 
 private extension AnimationGameViewController {
   func setupLayout() {
-   
-    questionLabel.translatesAutoresizingMaskIntoConstraints = false
-    animationImageView.translatesAutoresizingMaskIntoConstraints = false
       
       backgroundView.snp.makeConstraints {make in
           make.edges.equalToSuperview()

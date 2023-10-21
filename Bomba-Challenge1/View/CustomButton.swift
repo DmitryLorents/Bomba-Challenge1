@@ -17,12 +17,17 @@ class CustomButton: UIButton {
         
         super.init(frame: .zero)
         self.backgroundColor = .purpleButton
+        self.titleLabel?.numberOfLines = 0
         self.setTitle(title, for: .normal)
         self.setTitleColor(.yellowText, for: .normal)
         self.titleLabel?.font = .boldSystemFont(ofSize: 24)
         self.layer.borderColor = UIColor.black.cgColor
         self.layer.borderWidth = 2
         
+    }
+    
+   func roundCorners() {
+        self.layer.cornerRadius = self.bounds.height / 2
     }
     
 }

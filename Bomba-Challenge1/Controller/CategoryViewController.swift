@@ -32,10 +32,6 @@ final class CategoryViewController: UIViewController {
         setupView()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-    
     // MARK: - Actions Methods
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)

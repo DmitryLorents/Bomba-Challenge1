@@ -52,7 +52,8 @@ final class MainViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        roundCornersForButtons()
+        startGameButton.roundCorners()
+        categoryButton.roundCorners()
     }
 }
 
@@ -108,11 +109,6 @@ extension MainViewController {
             make.bottom.equalTo(startGameButton.snp.top).inset(-15)
         }
         
-    }
-    
-    fileprivate func roundCornersForButtons() {
-        startGameButton.layer.cornerRadius = startGameButton.bounds.height / 2
-        categoryButton.layer.cornerRadius = categoryButton.bounds.height / 2
     }
     
     //MARK: - Button methods

@@ -18,7 +18,7 @@ final class GameViewController: UIViewController {
         view.contentMode = .scaleAspectFit
         return view
     }()
-    private let mainStackView: UIStackView = {
+    private var mainStackView: UIStackView = {
         let element = UIStackView()
         element.axis = .vertical
         element.spacing = 5
@@ -42,7 +42,7 @@ final class GameViewController: UIViewController {
         return label
     }()
     
-    private let playButton = CustomButton(title: "Запустить")
+    private var playButton = CustomButton(title: "Запустить")
     
     //MARK: - Life Cycle
     
@@ -52,11 +52,16 @@ final class GameViewController: UIViewController {
         configureNavController()
         setupConstrains()
     }
-     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        playButton.layer.cornerRadius = playButton.bounds.height / 2
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        playButton.roundCorners()
     }
+     
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        playButton.roundCorners()
+//    }
     
     //MARK: - Methods
     
