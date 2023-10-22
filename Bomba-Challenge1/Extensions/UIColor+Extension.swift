@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//add custom colors
 extension UIColor {
     static let purpleButton = UIColor(named: "purpleButton")
     static let purpleText = UIColor(named: "purpleText")
