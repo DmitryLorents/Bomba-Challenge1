@@ -18,14 +18,6 @@ final class GameViewController: UIViewController {
         view.contentMode = .scaleAspectFit
         return view
     }()
-    private var mainStackView: UIStackView = {
-        let element = UIStackView()
-        element.axis = .vertical
-        element.spacing = 5
-        element.alignment = .center
-        element.distribution = .fillProportionally
-        return element
-    }()
     
     private let mainLabelView: UILabel = {
         let label = UILabel()
@@ -57,11 +49,6 @@ final class GameViewController: UIViewController {
         super.viewDidLayoutSubviews()
         playButton.roundCorners()
     }
-     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        playButton.roundCorners()
-//    }
     
     //MARK: - Methods
     
@@ -87,10 +74,9 @@ extension GameViewController {
     private func setViews() {
         playButton.addTarget(self, action: #selector(startGameButtonPressed), for: .touchUpInside)
         view.addSubview(mainBackgroundView)
-        view.addSubview(mainStackView)
-        mainStackView.addArrangedSubview(mainLabelView)
-        mainStackView.addArrangedSubview(backgroundGameImageView)
-        mainStackView.addArrangedSubview(playButton)
+        view.addSubview(mainLabelView)
+        view.addSubview(backgroundGameImageView)
+        view.addSubview(playButton)
     }
     
     private func setupConstrains() {
@@ -98,14 +84,21 @@ extension GameViewController {
         mainBackgroundView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        mainLabelView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+        }
         
-        mainStackView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
+        backgroundGameImageView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(mainLabelView)
+            make.top.equalTo(mainLabelView.snp.bottom)
+            make.bottom.greaterThanOrEqualTo(playButton.snp.top).priority(200)
         }
         
         playButton.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(50-8)
+            make.leading.trailing.equalToSuperview().inset(50)
             make.height.equalTo(80)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(10)
+            
         }
     }
     

@@ -143,7 +143,7 @@ private extension GameEndViewController {
         
         startOverButton.snp.makeConstraints { make in
             make.height.equalTo(79)
-            make.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(10)
             make.leading.trailing.equalToSuperview().inset(50)
         }
         
